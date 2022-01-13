@@ -60,19 +60,14 @@ def model_ads(message, brand_id):
     model = requests.get(model_search_api).json()
     ads_id_list = model['result']['search_result']['ids']
     list_ads = []
-    i = 0
-    while i < len(ads_id_list):
-        for i in range(3):
-            car_api = 'https://developers.ria.com/auto/info?api_key=' + API_KEY + '&auto_id=' + ads_id_list[i]
-            cars_id_list = requests.get(car_api).json()
-            car_link = 'https://auto.ria.com/uk' + cars_id_list['linkToView']
-            bot.send_message(message.chat.id, f"{car_link}")
-            list_ads.append(car_link)
-            i += 3
+    for i in range(len(ads_id_list)):
+        car_api = 'https://developers.ria.com/auto/info?api_key=' + API_KEY + '&auto_id=' + ads_id_list[i]
+        cars_id_list = requests.get(car_api).json()
+        car_link = 'https://auto.ria.com/uk' + cars_id_list['linkToView']
+        bot.send_message(message.chat.id, f"{car_link}")
+        list_ads.append(car_link)
 
     print(list_ads)
-
-
 
 
 def get_brand_id(brand):
