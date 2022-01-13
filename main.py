@@ -73,6 +73,8 @@ def model_ads(message, brand_id):
     print(list_ads)
 
 
+
+
 def get_brand_id(brand):
     brands_api = 'https://developers.ria.com/auto/categories/1/marks?api_key=' + API_KEY
     brands_list = requests.get(brands_api).json()
