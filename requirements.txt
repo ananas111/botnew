@@ -1,0 +1,4 @@
+aiogram==2.9.2
+
+SQLAlchemy~=1.4.29
+requests~=2.27.1
