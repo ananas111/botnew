@@ -156,10 +156,6 @@ def get_area_id(area_name):
             i += 1
 
 
-
-
-
-
 def get_brand_id(brand):
     brands_api = 'https://developers.ria.com/auto/categories/1/marks?api_key=' + API_KEY
     brands_list = requests.get(brands_api).json()
@@ -180,12 +176,6 @@ def get_model_id(brand_id, model_name):
             return model_id
         else:
             i += 1
-
-
-def add_paramethers(param):
-    api_link_ria = 'https://developers.ria.com/auto/search?api_key=' + API_KEY + "&category_id=1"
-    api_link_ria = api_link_ria + param
-    return api_link_ria
 
 
 def get_cars_ids(brand_id, model_id):
